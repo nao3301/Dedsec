@@ -432,38 +432,37 @@ cout<<"\033[1;36m[!]\033[0m"<<endl;
 			case 4 :
 				{
 					cout<<"\nmodules:\n\n"<<"fluxion ==> opens fluxion(tool to crack wlan)\n";//[*]
-					cout<<"map => maps the wireless networks around you"<<endl;			//klappt aber noch nicht ganz so richtig!
-					cout<<"scan ==> scans other clients in your network"<<endl;			// läut iwi garnicht  evtl. umstieg zu einem einfachen nmap scan.... mal sehen
+					cout<<"map => maps the wireless networks around you"<<endl;			
+					cout<<"scan ==> scans other clients in your network"<<endl;			
 					cout<<"wifite ==> starts wifite"<<endl;								//[*]
 					cout<<"set ==> starts the SEToolkit"<<endl;							//[*]
 					cout<<"ptf ==> starts the pentestframework"<<endl;					//[*]
 					cout<<"msf ==> starts metasploit"<<endl;								//[*]
-					cout<<"mon ==> starts airmon-ng"<<endl;		//raus
-					cout<<"dump ==start airodump-ng"<<endl;		//raus
-					cout<<"kick => kicks everybody out of the network"<<endl;			//erstellen
-					cout<<"kicknick ==> kicks one target out of the network"<<endl;			//müsste klappen
-					cout<<"nmap ==> starts nmap"<<endl;			//raus
+					cout<<"mon ==> starts airmon-ng"<<endl;		
+					cout<<"dump ==start airodump-ng"<<endl;		
+					cout<<"kick => kicks everybody out of the network"<<endl;			
+					cout<<"kicknick ==> kicks one target out of the network"<<endl;			
+					cout<<"nmap ==> starts nmap"<<endl;			
 					cout<<"dedpscr ==> cracks password hash with wordlist (dictionary attack)"<<endl;		// [*]
-					cout<<"lip ==> shows your ip adress"<<endl;									//noch nicht ganz!
-					cout<<"shhh ==> starts a listener (for example for the reverse shell from the rubber ducky!)"<<endl;	//erstellen!
+					cout<<"lip ==> shows your ip adress"<<endl;									
+					cout<<"shhh ==> starts a listener (for example for the reverse shell from the rubber ducky!)"<<endl;	
 					cout<<"ssh ==> sets ssh-connection to a client"<<endl;
 					cout << "logout ==> logout" <<endl;
-					break;																							//hst erstellen!!!
+					break;																							
 				};
 			case 5 :
 				{
 					cout<<"\nhelp:\n\n"<<"use arrowkeys to use history, use tap for auto completion\n"<<"exit => closes Dedsec\nbash => opens bash ( come with exit back to Dedsec )\nshow => shows you the modules";
-					cout<<endl<<"chat => opens the Chat "<<endl; 			// nochmal drueber nachdenken!!
-				//	cout<<"talk => ...\nshutdown => shutdown"<<endl; //raus
+					cout<<endl<<"chat => opens the Chat "<<endl; 	
 					cout<<"setglo => you can set globals, which then will be used by the modules"<<endl;		//[*]
 					cout<<"delglo => deletes all globals"<<endl;											//[*]
-					cout<<"about => about"<<endl;														//[*] kann aber noch schöner, wenn man mal langeweile hat ;)
-					cout<<"connect => connect you to the Dedsec server"<<endl;							//etwas ueberlegen!!!!!
-					cout<<"payload_rub => menu for payloads for the USB rubberducky"<<endl;				//erstellen
-					cout<<"w_modul_nano => write a modul for the wifi pineapple nano"<<endl;			//erstellen
-					cout<<"clshist => clear the history"<<endl;										// ist fast fertig , aber mach erstmal die hist!:P
+					cout<<"about => about"<<endl;														//[*]
+					cout<<"connect => connect you to the Dedsec server"<<endl;							
+					cout<<"payload_rub => menu for payloads for the USB rubberducky"<<endl;				
+					cout<<"w_modul_nano => write a modul for the wifi pineapple nano"<<endl;			
+					cout<<"clshist => clear the history"<<endl;										
 					cout<<"shutdown => do i have to say anything?"<<endl;
-					cout<<"c"<<endl;																	//nur für uns coder! also reicht
+					cout<<"c"<<endl;																	
 					break;
 				};
 			case 6:
@@ -566,12 +565,9 @@ cout<<"\033[1;36m[!]\033[0m"<<endl;
 		};
 			case 14:
 				{
-					//ip addresse aus system auslesen????
+					
 					cout<<"scan: "<<endl;
-					//get_ip();   soo nicht :D
-					cout<<system("ip address | grep  wlp2s0: ")<<endl;
-				//	char gip[20]=system("ip address | grep  wlp2s0: ");
-				//	cout<<gip[1]<<endl;
+					
 
 						nickp= "python2 scaner.py "; //wrong again!
 
@@ -737,7 +733,7 @@ cout<<"\033[1;36m[!]\033[0m"<<endl;
 				{
 						ofstream file;
 						file.open("conf/history.txt",fstream::out | fstream::trunc);
-						file.clear(); // fehlt was!!
+						file.clear();
 					cout<<"\n\033[1;31m[!]\033[0mhistory deleted"<<endl;
 					break;
 				};
@@ -751,7 +747,7 @@ cout<<"\033[1;36m[!]\033[0m"<<endl;
 					{
 							ofstream file;
 							file.open("conf/speicher.txt",fstream::out | fstream::trunc);
-							file.clear(); // fehlt was!!
+							file.clear(); 
 						cout<<"\n\033[1;31m[!]\033[0myou are logged out"<<endl;
 						return 1;
 						break;
