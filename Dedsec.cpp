@@ -19,7 +19,7 @@ char* my_generator(const char*,int);
 char * dupstr (char*);
 void *xmalloc (int);
  
-char* cmd [] ={ "help", "show", "kicknick" ,"msf", "shhh", "ssh", "scan", "lip", "clshist", "setglo", "delglo","bash","shutdown", "ptf", "set", "fluxion", "wifite", "ptf_no_network", "dedpscr", "payload", "clshist", "logout", " " };
+char* cmd [] ={ "exit", "help", "show", "kicknick" ,"msf", "shhh", "ssh", "scan", "lip", "clshist", "setglo", "delglo","bash","shutdown", "ptf", "set", "fluxion", "wifite", "ptf_no_network", "dedpscr", "payload", "clshist", "logout", " " };
 
 
 static char** my_completion( const char * text , int start,  int end)
@@ -111,9 +111,9 @@ void startup()
  cout<<blue << endl <<endl;
  cout<<def;
  cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++                    " << endl;
- cout<<def << "                    Developed by: Luna ("<<green<<"nao3301\033 & "<<green<<"lupa\033)                      " << endl;
+ cout<<def << "                    Developed by: Luna ("<<green<<"nao3301"<<def<<" & "<<green<<"lupa"<<def<<")                      " << endl;
  cout<<def << "                    Version: 0.2.0 beta                                        " << endl;
- cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++   \033                 " << endl << endl;
+ cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++                    " << endl << endl;
  cout<<def;
 }
 
@@ -357,9 +357,9 @@ cout<<"\033[1;36m[!]\033[0m"<<endl;
 			bufnr=8;
 			else if (buff == "map"|| buff=="map ")
 			bufnr=9;
-			else if (buff == "wifite")
+			else if (buff == "wifite"|| buff == "wifite ")
 			bufnr=10;
-			else if (buff == "set")
+			else if (buff == "set"||buff == "set ")
 			bufnr=11;
 			else if (buff == "ptf")
 			bufnr=12;
