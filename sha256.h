@@ -1,11 +1,5 @@
-/*****Please include following header files*****/
-// iostream
-// string
-/***********************************************/
-
-/*****Please use following namespaces*****/
 using namespace std;
-/*****************************************/
+
 
 #define uchar unsigned char
 #define uint unsigned int
