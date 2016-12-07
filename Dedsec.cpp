@@ -116,7 +116,7 @@ void startup()
  cout<<def;
  cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++                    " << endl;
  cout<<def << "                    Developed by: Luna ("<<green<<"nao3301"<<def<<" & "<<green<<"lupa"<<def<<")                      " << endl;
- cout<<def << "                    Version: 0.2.0 beta                                        " << endl;
+ cout<<def << "                    Version: 0.2.1 beta                                        " << endl;
  cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++                    " << endl << endl;
  cout<<def;
 }
