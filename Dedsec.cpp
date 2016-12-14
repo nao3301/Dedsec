@@ -558,7 +558,7 @@ int main ()
 			case 8:
 				{
 					cout<<"fluxion: "<<endl;
-					system("/home/nao3301/redteam_kit/fluxion/./fluxion");
+					system("fluxion");
 					//system("fluxion);
 					break;
 				};
@@ -588,7 +588,7 @@ int main ()
 				{
 					cout<<"wifite: "<<endl;
 					//system("wifite");
-					system("python2 /home/nao3301/redteam_kit/wifite/wifite.py");
+					system("wifite");
 					break;
 				};
 		case 11:
