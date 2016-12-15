@@ -112,10 +112,10 @@ By default, the install directory is `/usr/bin/`, you can change it by modifying
 
 Tool developed by [@nao3301](https://) & [@lupa](https://)
 
-###Tanks to
+### Tanks to
 
--all Developers
---lupa
---blub
--[@Hak5](https:://hak5.org)
--[@tihmstar]
+- all Developers
+- - lupa
+- - blub
+- [@Hak5](https:://hak5.org)
+- [@tihmstar]
