@@ -110,7 +110,7 @@ By default, the install directory is `/usr/bin/`, you can change it by modifying
 
 ### Credits
 
-Tool developed by [@nao3301](https://) & [@lupa](https://)
+Tool developed by [@nao3301](https://github.com/nao3301) & [@lupa](https://github.com/nao3301)
 
 ### Tanks to
 
