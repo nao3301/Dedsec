@@ -45,6 +45,7 @@ This tool supports Linux, and it is planed also for windows.
 ### login 
 
 nickname:[nickname]
+
 confirm your membership: [password]
 
 ###  help
