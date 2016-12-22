@@ -31,7 +31,6 @@
                    ++++++++++++++++++++++++++++++++++++++++                    
 ```
 
-[![Platform](https://img.shields.io/badge/platform-multiples-yellowgreen.svg)](https://github.com/nao3301/Dedsec#platforms-tested-)
 
 ```
 Usage : [sudo] Dedsec
