@@ -115,6 +115,19 @@ For any other questions contact [us](nao.lupa@gmail.com). We will try to help yo
 
 Tool developed by [@nao3301](https://github.com/nao3301) & [@lupa](https://github.com/nao3301)
 
+#### Updates
+
+2_0
+- help
+- modules
+
+2_1
+- autocompletion
+- example
+
+2_2
+- install.sh
+
 ### Tanks to
 
 - all Developers
