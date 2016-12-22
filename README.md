@@ -123,8 +123,8 @@ Tool developed by [@nao3301](https://github.com/nao3301) & [@lupa](https://githu
   -  d3vil
 - [@Hak5](https://hak5.org)
 - [@tihmstar](https://github.com/tihmstar)
-- [kali linux](https://kali-linux.org)
-- [Metasploit project](https://metasploit.org)
-- [pentestingframework](http://github.com/ptf)
+- [kali linux](https://kali.org)
+- [Metasploit project](https://www.metasploit.com)
+- [pentestingframework](https://github.com/trustedsec/ptf)
 - github
 - gnu projekt
