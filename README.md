@@ -59,7 +59,6 @@ show     => shows you the modulessetglo   => you can set globals, which then wil
 delglo   => deletes all globals
 about    => about
 payload  => menu for payloads for the USB rubberducky
-pinemod  => write a modul for the wifi pineapple nano
 clshist  => clear the history
 shutdown => shutdown your machine
 c
@@ -126,5 +125,6 @@ Tool developed by [@nao3301](https://github.com/nao3301) & [@lupa](https://githu
 - [kali linux](https://kali.org)
 - [Metasploit project](https://www.metasploit.com)
 - [pentestingframework](https://github.com/trustedsec/ptf)
+- Wifite
 - github
 - gnu projekt
