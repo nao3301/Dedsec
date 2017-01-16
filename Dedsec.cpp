@@ -3,8 +3,8 @@
 #include <string>
 #include <stdlib.h>
 #include <fstream>
-#include <arpa/inet.h>
-#include <sys/socket.h>
+#include "inet.h"
+#include "socket.h"
 // #include "inet.h"
 // #include "socket.h"
 #include <ifaddrs.h>
@@ -16,14 +16,14 @@
 #include <algorithm>
 
 #include <iomanip>
-#include <sys/stat.h>
+#include "stat.h"
 #include <getopt.h>
 #include <termios.h>
 #include <unistd.h>
 #include <signal.h>
 
-#include <readline/readline.h>
-#include <readline/history.h>
+#include "readline.h"
+#include "history.h"
 // #include "readline.h"
 // #include "history.h"
 
