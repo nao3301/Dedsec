@@ -1,17 +1,31 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <stdlib.h>
 #include <fstream>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+// #include "inet.h"
+// #include "socket.h"
 #include <ifaddrs.h>
 #include <stdio.h>
 #include <cstring>
 #include "sha256.h"
 #include "color.h"
+#include <ctime>
+#include <algorithm>
+
+#include <iomanip>
+#include <sys/stat.h>
+#include <getopt.h>
+#include <termios.h>
+#include <unistd.h>
+#include <signal.h>
+
 #include <readline/readline.h>
 #include <readline/history.h>
-#include <ctime>
+// #include "readline.h"
+// #include "history.h"
 
 using namespace std;
 
@@ -20,10 +34,10 @@ char* my_generator(const char*,int);
 char * dupstr (char*);
 void *xmalloc (int);
 
-char* cmd [] ={ "wifipine", "exit", "help", "show", "kicknick" 
+char* cmd [] ={ "pinecon", "exit", "help", "show", "kicknick" 
 ,"msf", "shhh", "ssh", "scan", "lip", "clshist", "setglo"
 , "delglo","bash","shutdown", "ptf", "set", "fluxion", "wifite",
- "ptf_no_network", "dedpscr", "payload", "clshist", "logout", " " };
+ "ptf_no_network", "dedpscr", "payload", "clshist", "logout", "ducky", "time", "logdown", "turtcon" };
 
 
 static char** my_completion( const char * text , int start,  int end)
@@ -116,16 +130,26 @@ void startup()
  cout<<def;
  cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++                    " << endl;
  cout<<def << "                    Developed by: Luna ("<<green<<"nao3301"<<def<<" & "<<green<<"lupa"<<def<<")                      " << endl;
- cout<<def << "                    Version: 0.2.1 beta                                        " << endl;
+ cout<<def << "                    Version: 0.2.0 beta                                        " << endl;
  cout<<red << "                   ++++++++++++++++++++++++++++++++++++++++                    " << endl << endl;
  cout<<def;
+}
+
+string removeWhiteSpace(string str)
+{
+	string result = "";
+	for(size_t i = 0; i < str.length(); i++)
+	{
+		if(str[i] != ' ')
+			result += str[i];
+	}
+	return result;
 }
 
 int main ()
 {
 
 	string name;
-	string namep;
 	string nickp;
 	char join='\0';
 	string task;
@@ -160,16 +184,24 @@ int main ()
 	string mac1;
 	string mac0;
 	string cmacp;
+	string inputfile;
+	string outputfile;
+	string option;
+	string lang;
 	string pwhash = "9c1e7f9a92b0d0088b6425c37fb91eee5aa8787fb815af0b453b0ddc11d036ea";
 	string rip;
 	int tescou=0;
 	int f=0;
 	string tesc;
 	string ptest ="0";
+	int note = 0;
 	time_t now = time(0);
 	char date[22];
 	strftime(date, 22, "%d.%m.%Y - %H:%M:%S", localtime(&now));
-
+	string pip =" > ";
+	string und = "_";
+	string txts = ".txt";
+	string notel= "notes/";	
 
   Color::Modifier red(Color::FG_RED);
   Color::Modifier def(Color::FG_DEFAULT);
@@ -226,15 +258,12 @@ int main ()
    datei >> text;
    datei.close();
 
-   ginterface = Interface;
-
 	if (text == "\0")
 	{
 
 	cout<<"welcome to DED tool!\nnickname: ";
 	cin>>name;
 	cout<<"\nhello "<<name<<"!"<<endl;
-	//namep= "./comu.out "+name;
 	cout<<"confirm your membership: ";
 	cin >> pw;
 	const char * pwchar = pw.c_str();
@@ -274,7 +303,7 @@ int main ()
 	if (date[0]==0&&date[1]==5&&date[3]==1&&date[4]==1)
 		cout<<" and a happy Guy Fawkes day! "<<endl;
 
-	const char *cname=namep.c_str();
+
 	const char *cintaDown=intaDownp.c_str();
 	const char *cintaUp=intaUpp.c_str();
 	const char *cmacch=macchp.c_str();
@@ -303,7 +332,7 @@ int main ()
         				}
     				}
 
-			freeifaddrs(ifap);
+			//freeifaddrs(ifap);
 
 			cin>>iin;
 
@@ -331,7 +360,7 @@ int main ()
 	const char *cmac=cmacp.c_str();
 	mac1 = system(cmac);	
 
-	cout<<"\033[1;36m[!]\033[0m"<<endl;
+	cout<<"\033[1;36m\n[!]\033[0m"<<endl;
 	cout<<"\nNinjamode enable..."<<endl;
 	system (cintaDown);
 	system(cmacch);
@@ -350,7 +379,9 @@ int main ()
 	{
 		cout<<"\033[1;31m[!]\033[0mno network connection!\nshopping sucks wihtout a connection"<<endl;
 	}
-	cout<<"\nhappy hacking"<<endl;
+	else
+		ginterface = Interface;
+	cout<<"\nhappy hacking\nmay the force be with you"<<endl;
 	do {
 		 while((buf = readline("\n ~ "))!=NULL) {
         //enable auto-complete
@@ -372,75 +403,77 @@ int main ()
 	file << buff << endl;
 
 
-		if (buff =="exit"||buff =="exit ")
+		if (buff =="exit"||buff =="exit ")							//[*]
 			bufnr=1;
-		else if(buff=="bash"||buff=="bash ")
+		else if(buff=="bash"||buff=="bash ")						//[*]
 			bufnr=2;
-			else if (buff == "show" ||buff == "show ")
+			else if (buff == "show" ||buff == "show ")				//[*]
 			bufnr=4;
-			else if (buff == "help"||buff == "help ")
+			else if (buff == "help"||buff == "help ")				//[*]
 			bufnr =5;
-			else if (buff == "wifipine"|| buff == "wiifipine ")
+			else if (buff == "pinecon"|| buff == "pinecon ")		//!
 			bufnr=6;
-			else if (buff == "kicknick"||buff == "kicknick ")
+			else if (buff == "kicknick"||buff == "kicknick ")		//[*]
 			bufnr=7;
-			else if (buff == "fluxion"||buff == "fluxion ")
+			else if (buff == "fluxion"||buff == "fluxion ")			//[-]
 			bufnr=8;
-			else if (buff == "map"|| buff=="map ")
+			else if (buff == "map"|| buff=="map ")					//[!]
 			bufnr=9;
-			else if (buff == "wifite"|| buff == "wifite ")
+			else if (buff == "wifite"|| buff == "wifite ")			//[-]
 			bufnr=10;
-			else if (buff == "set"||buff == "set ")
+			else if (buff == "set"||buff == "set ")					//[*]
 			bufnr=11;
-			else if (buff == "ptf"||buff == "ptf ")
+			else if (buff == "ptf"||buff == "ptf ")					//[?]
 			bufnr=12;
-			else if (buff == "msf"||buff == "msf")
+			else if (buff == "msf"||buff == "msf")					//[*]
 			bufnr=13;
-			else if (buff == "example"||buff == "example ")
+			else if (buff == "example"||buff == "example ")			//*
 			bufnr=14;
-			else if (buff == "shutdown"||buff == "shutdown ")
+			else if (buff == "shutdown"||buff == "shutdown ")		//[*]
 			bufnr=15;
-			else if (buff == "shhh"||buff == "shhh ")
+			else if (buff == "shhh"||buff == "shhh ")				//[-?]
 			bufnr = 16;
-			else if (buff == "")
+			else if (buff == "ducky" || buff == "ducky ")			//[-]
 			bufnr = 17;
-			else if (buff =="")
+			else if (buff == "time" || buff == "time ")				//[*]
 			bufnr = 18;
-			else if (buff == "")
+			else if (buff == "")									//[*]
 			bufnr = 19;
-			else if (buff == "setglo"||buff == "setglo ")
+			else if (buff == "setglo"||buff == "setglo ")			//[*]
 			bufnr=20;
-			else if (buff == "scan"||buff == "scan ")
+			else if (buff == "scan"||buff == "scan ")				//[!]
 			bufnr=21;
-			else if (buff == "delglo"||buff == "delglo ")
+			else if (buff == "delglo"||buff == "delglo ")			//[*]
 			bufnr=22;
-			else if (buff =="about"||buff == "about ")
+			else if (buff =="about"||buff == "about ")				//[*]
 			bufnr=23;
-			else if (buff == "")
+			else if (buff == "logdown" || buff == "logdown ")
 			bufnr=24;
-			else if (buff == "payload"||buff == "payload ")
+			else if (buff == "payload"||buff == "payload ")			//!
 			bufnr = 25;
-			else if (buff == "")
+			else if (buff == "turtcon" || buff == "turtcon ")
 			bufnr =26;
-			else if (buff == "dedpscr" ||buff == "dedpscr ")
+			else if (buff == "dedpscr" ||buff == "dedpscr ")		//[*]
 			bufnr =27;
-			else if (buff == "lip"||buff == "lip ")
+			else if (buff == "lip"||buff == "lip ")					//[*]
 			bufnr =28;
-			else if (buff == "ssh"|| buff == "ssh ")
+			else if (buff == "ssh"|| buff == "ssh ")				//[*]
 			bufnr=29;
-			else if (buff == "clshist"||buff == "clshist ")
+			else if (buff == "clshist"||buff == "clshist ")			//[-]
 			bufnr =30;
 			else if (buff =="ptf_no_network"||buff == "ptf_no_network ")
 			bufnr = 31;
-			else if (buff == "logout"||buff == "logout ")
+			else if (buff == "logout"||buff == "logout ")			//[*]
 			bufnr =32;
+			else if( buff == "note" || buff == "note ")
+			bufnr = 33; 
 
 
 			else if (buff=="c")
 			bufnr=1000;
 			else if (buff=="MrRobot")
 			bufnr=1500;
-			else if (buff == "hack5" || buf== "hak5")
+			else if (buff == "HAK5" || buf== "hak5")
 			bufnr=1501;
 			else if (buff == "talk")
 			bufnr=98;
@@ -462,40 +495,54 @@ int main ()
 	};
 			case 4 :
 				{
-					cout<<"\nmodules:\n\n"<<"fluxion ==> opens fluxion(tool to crack wlan)\n";//[*]
-					cout<<"map => maps the wireless networks around you"<<endl;			//make better
-					cout<<"scan ==> scans other clients in your network"<<endl;			// 
-					cout<<"wifite ==> starts wifite"<<endl;								//[*]
-					cout<<"set ==> starts the SEToolkit"<<endl;							//[*]
-					cout<<"ptf ==> starts the pentestframework"<<endl;					//[*]
-					cout<<"msf ==> starts metasploit"<<endl;								//[*]
-					cout<<"kick => kicks everybody out of the network"<<endl;			//create
-					cout<<"kicknick ==> kicks one target out of the network"<<endl;			
-					cout<<"dedpscr ==> cracks password hash with wordlist (dictionary attack)"<<endl;		// [*]
-					cout<<"lip ==> shows your ip adress"<<endl;									
-					cout<<"shhh ==> starts a listener (for example for the reverse shell from the rubber ducky!)"<<endl;	
-					cout<<"ssh ==> sets ssh-connection to a client"<<endl;
-					cout << "logout ==> logout" <<endl;
+					cout << setiosflags(ios::left);
+					cout << "\nmodules:" << endl << endl;
+					cout << setw(9) << "fluxion" << "==> opens fluxion(tool to crack wlan)" << endl;//[*]
+					cout << setw(9) << "map" << "==> maps the wireless networks around you" << endl;			//make better
+					cout << setw(9) << "scan" << "==> scans other clients in your network" << endl;			// ---
+					cout << setw(9) << "wifite" << "==> starts wifite" << endl;								//[*]
+					cout << setw(9) << "set" << "==> starts the SEToolkit" << endl;							//[*]
+					cout << setw(9) << "ptf" << "==> starts the pentestframework" << endl;					//[*]
+					cout << setw(9) << "msf" << "==> starts metasploit" << endl;								//[*]
+					cout << setw(9) << "kicknick" << "==> kicks one target out of the network" << endl;			
+					cout << setw(9) << "dedpscr" << "==> cracks password hash with wordlist (dictionary attack)" << endl;		// [*]
+					cout << setw(9) << "ducky" << "==> opens the DuckToolkit to encode ducky scrips" << endl;					//[*]
+					cout << setw(9) << "lip" << "==> shows your ip adress" << endl;												//[*]
+					cout << setw(9) << "shhh" << "==> starts a listener (for example for the reverse shell from the rubber ducky!)" << endl;	//[* ]
+					cout << setw(9) << "ssh" << "==> sets ssh-connection to a client" << endl;
+					cout << setw(9) << "turtcon" << "==> connects to your Lan-Turtle (ssh)" << endl;						//[*]
+					cout << setw(9) << "pinecon" << "==> connects to your WIFI-Pineapple (ssh)" << endl;				//[*]
+					
 					break;																							//hst form file?
 																													//hist remake (windows?)
 				};
 			case 5 :
 				{
-					cout<<"\nhelp:\n\n"<<"use arrowkeys to use history, use tap for auto completion\n"<<"exit => closes Dedsec\nbash => opens bash ( come with exit back to Dedsec )\nshow => shows you the modules";
-					cout<<"setglo => you can set globals, which then will be used by the modules"<<endl;		//[*]
-					cout<<"delglo => deletes all globals"<<endl;											//[*]
-					cout<<"about => about"<<endl;														//[*] 
+					cout << setiosflags(ios::left);
+					cout << "\nhelp:" << endl << endl;
+					cout << "use arrowkeys to use history, use tap for auto completion" << endl << endl;
+					cout << setw(9) << "exit" << "=> closes Dedsec" << endl;
+					cout << setw(9) << "bash" << "=> opens bash ( come with exit back to Dedsec )" << endl;
+					cout << setw(9) << "show" << "=> shows you the modules";
+					cout << setw(9) << "setglo" << "=> you can set globals, which then will be used by the modules"<<endl;		//[*]
+					cout << setw(9) << "delglo" << "=> deletes all globals"<<endl;											//[*]
+					cout << setw(9) << "about" << "=> about"<<endl;														//[*] 
 					//cout<<"connect => connect you to the Dedsec server"<<endl;							// maybe ...
-					cout<<"payload=> menu for payloads for the USB rubberducky"<<endl;				//create 
-					cout<<"w_modul_nano => write a modul for the wifi pineapple nano"<<endl;			//create
-					cout<<"clshist => clear the history"<<endl;											// cls history file ... 
-					cout<<"shutdown => do i have to say anything?"<<endl;
-					cout<<"c"<<endl;																	//just for us coder! => no exlanation
-					break;																				//example, rubber shit, nano shit, turtle shit...
+					//cout << setw(9) << "payload" << "=> menu for payloads for the USB rubberducky" << endl;				//create 
+					//cout << setw(9) << "pinemod" << "=> write a modul for the wifi pineapple nano" <<endl;			//create
+					cout << setw(9) << "clshist" << "=> clear the history" <<endl;											// cls history file ... 
+					cout << setw(9) << "shutdown" << "=> shutdown your machine" <<endl;
+					cout << setw(9) << "time" << "=> shows time and date" << endl;						//[*]
+					cout << setw(9) << "note" << "=> save your output in a note file"<<endl;			//create!
+					cout << setw(9) << "logout" << "==> logout" <<endl;
+					cout << "c"<<endl;																	//just for us coder! => no exlanation
+					break;																				//rubber shit, nano shit, turtle shit...
 				};
 			case 6:
 				{
-					cout <<"chat is now not avalible, check your connection."<<endl;
+					cout <<"pinecon"<<endl;
+					system("wifipineapple/wp6.sh");
+					system("firefox 172.16.42.1:1471");
 					break;
 				};
 			case 7:
@@ -559,56 +606,70 @@ int main ()
 				{
 					cout<<"fluxion: "<<endl;
 					system("fluxion");
-					//system("fluxion);
 					break;
 				};
 			case 9:
 				{
 					cout<<"map: "<<endl;
 
-					nickp= "python2 modules/wlan-scanner.py ";
+					// else
+					// {
+					// 	cout<<"interface: "<<endl;
+					// nickp=nickp+" 0  ";// +var+" ";
+					// }
 
-					if (ginterface != "0")
+					if (note==1)
+					{	
+						string notepl = notel + date + und + buff + txts;
+						notepl = removeWhiteSpace(notepl);
+						nickp= "python2 modules/wlan-scanner.py ";
+						if (ginterface != "0" || ginterface != "")
+						{
+							nickp= nickp+ginterface+" ";
+						}
+						nickp= nickp + pip + notepl;
+
+						const char *cnick=nickp.c_str();
+						system(cnick);						
+
+					}		
+					else
+					{
+						nickp= "python2 modules/wlan-scanner.py ";
+						if (ginterface != "0" || ginterface != "")
 					{
 						nickp= nickp+ginterface+" ";
 
 					}
-					else
-					{
-						cout<<"interface: "<<endl;
-					nickp=nickp+" 0  ";// +var+" ";
+						const char *cnick=nickp.c_str();
+						system(cnick);
 					}
-
-
-					const char *cnick=nickp.c_str();
-					system(cnick);
 					break;
 				};
 			case 10:
 				{
 					cout<<"wifite: "<<endl;
-					//system("wifite");
 					system("wifite");
 					break;
 				};
-		case 11:
-		{
+			case 11:
+				{
 					cout<<"SET: "<<endl;
 					system("setoolkit");
 					break;
-		};
-		case 12:
-		{
-			cout<<"PTF: "<<endl;
+				};
+			case 12:
+				{
+					cout<<"PTF: "<<endl;
 					system("ptf");
 					break;
-		};
-		case 13:
-		{
-			cout<<"MSF: "<<endl;
+				};
+			case 13:
+				{
+					cout<<"MSF: "<<endl;
 					system("msfconsole");
 					break;
-		};
+				};
 			case 14:
 				{
 					string test="0";
@@ -626,9 +687,8 @@ int main ()
                 	 add_history(buf);
      				test = buf;
      				free(buf);
-     				//ptest="python2 modules/example.py "+test;
-     				ptest="./modules/example.out "+test;
-					const char *ctest=ptest.c_str();
+
+					const char *ctest=test.c_str();
 					system(ctest);
 					break;
 				};
@@ -646,7 +706,7 @@ int main ()
 					else
 					{
 						cout<<"port for the listener:"<<endl;
-						buf = readline("/ssh/ip~ ");
+						buf = readline("/listener/port~ ");
                     	rl_bind_key('\t',rl_complete);
 
              			if (buf[0]!=0)
@@ -661,69 +721,133 @@ int main ()
 				};
 			case 17:
 				{
+					cout<<"ducky help:"<<endl;
+					system("python2 DuckToolkit/ducktools.py -h");
+					cout<<"ducky use:"<<endl;
+					cout << "inputfile: "<<endl;
+					buf = readline("/ducky/input~ ");
+                    rl_bind_key('\t',rl_complete);
+					if (buf[0]!=0)
+                	 add_history(buf);
+     				inputfile = buf;
+     				free(buf);
+     				cout << "outputfile: "<<endl;
+					buf = readline("/ducky/output~ ");
+                    rl_bind_key('\t',rl_complete);
+					if (buf[0]!=0)
+                	 add_history(buf);
+     				outputfile = buf;
+     				free(buf);
+     				cout<<"encrypt or decrypt [e,d]";
+					buf = readline("/ducky/option~ ");
+                    rl_bind_key('\t',rl_complete);
+					if (buf[0]!=0)
+                	 add_history(buf);
+     				option = buf;
+     				free(buf);
+     				cout<<"keybord language [us,gb,de,fr,]";
+					buf = readline("/ducky/lang~ ");
+                    rl_bind_key('\t',rl_complete);
+					if (buf[0]!=0)
+                	 add_history(buf);
+     				lang = buf;
+     				free(buf);
+
+     				string sducky="python2 DuckToolkit/ducktools.py -l "+lang+" -"+option+" "+inputfile+" "+outputfile;
+     				const char *cducky=sducky.c_str();
+					system(cducky);
+
+
 					break;
+
 
 				};
 			case 18:
 				{
+					cout<<endl<<date<<endl;
 					break;
 				};
 			case 19:
 				{
+					cout<<"nothing to do"<<endl;
 					break;
 				};
 			case 20:
 				{
 					cout<<"\nset your globals: \nto reset just enter '0'"<<endl;
 					cout<<"target: ";
-					buf = readline("/global/target~ ");
+					if (gtarget != "0")
+					cout<<gtarget<<endl;
+					buf = readline("\n/global/target~ ");
                     rl_bind_key('\t',rl_complete);
 
              		if (buf[0]!=0)
+             		{
                 	 add_history(buf);
-     				gtarget = buf;
+     				 gtarget = buf;
+     				}
      				free(buf);
 					cout<<"\ninterface: ";//func
-					buf = readline("/global/interface~ ");
+					if (ginterface != "0")
+					cout<<ginterface<<endl;
+					buf = readline("\n/global/interface~ ");
                     rl_bind_key('\t',rl_complete);
 
              		if (buf[0]!=0)
+             		{
                 	 add_history(buf);
-     				ginterface = buf;
+     				 ginterface = buf;
+     				}
      				free(buf);
 					cout<<"\nap_ip: ";
-					buf = readline("/global/ap_ip~ ");
+					if (gap != "0")
+					cout<<gap<<endl;
+					buf = readline("\n/global/ap_ip~ ");
                     rl_bind_key('\t',rl_complete);
 
              		if (buf[0]!=0)
+             		{
                 	 add_history(buf);
-     				gap = buf;
+     				 gap = buf;
+     				}
      				free(buf);
 					cout<<"\nport: ";
-					buf = readline("/global/port~ ");
+					if (gport != "0")
+					cout<<gport<<endl;
+					buf = readline("\n/global/port~ ");
                     rl_bind_key('\t',rl_complete);
 
              		if (buf[0]!=0)
+             		{
                 	 add_history(buf);
-     				gport = buf;
+     				 gport = buf;
+     				}
      				free(buf);
 
      				cout<<"\nhash: ";
-					buf = readline("/global/hash~ ");
+     				if (ghash != "0")
+     				cout<<ghash<<endl;
+					buf = readline("\n/global/hash~ ");
                     rl_bind_key('\t',rl_complete);
 
              		if (buf[0]!=0)
+             		{
                 	 add_history(buf);
-     				ghash = buf;
+     				 ghash = buf;
+     				}
      				free(buf);
 
      				cout<<"\nwordlist: ";
-					buf = readline("/global/list~ ");
+     				if (glist != "0")
+     				cout<<glist<<endl;
+					buf = readline("\n/global/list~ ");
                     rl_bind_key('\t',rl_complete);
 
              		if (buf[0]!=0)
-                	 add_history(buf);
-     				glist = buf;
+             		{
+             		 add_history(buf);
+     				 glist = buf;
+     				}
      				free(buf);
 
      // 				cout<<"\gtest: ";
@@ -749,9 +873,25 @@ int main ()
 							tescou++;
 
 					}while(tescou<=2);
-					iprg="nmap -sP "+rip+"0/24";
-					const char *scanrg=iprg.c_str();
-					system(scanrg);//"nmap -sP 192.168.2.0/24");//user var!
+					//
+					if (note==1)
+					{	
+						string notepl = notel + date + und + buff + txts;// + " "+ notel;
+						notepl = removeWhiteSpace(notepl);
+						//notepl.assign(notepl.begin(), remove_if(notepl.begin(), notepl.end(), &isspace));
+						//+ notepl
+						//const char *cnote=notepl.c_str();
+						iprg="nmap -sP "+pip+notepl;//+rip+"0/24"+notepl;
+						const char *scanrg=iprg.c_str();
+						system(scanrg);						
+
+					}
+					else
+					{
+						iprg="nmap -sP "+rip+"0/24";
+						const char *scanrg=iprg.c_str();
+						system(scanrg);
+					}
 					 break;
 				};
 			case 22:
@@ -773,11 +913,15 @@ int main ()
 				};
 			case 24:
 				{
-					cout<<"connecting..."<<endl;
+					cout<<"logdown..."<<endl;
 					cout<<".";
 					cout<<".";
 					cout<<"."<<endl;
-					cout<<" connection failt"<<endl;
+					ofstream file;
+						file.open("conf/speicher.txt",fstream::out | fstream::trunc);
+						file.clear(); 
+					cout<<"\n\033[1;31m[!]\033[0myou are logged out"<<endl;
+					system("shutdown now halt");
 					break;
 				};
 			case 25:
@@ -801,7 +945,8 @@ int main ()
 					break;
 				};
 			case 26:
-				{
+				{	cout<<"turtcon"<<endl;
+					system("ssh root@172.16.84.1");
 					break;
 				};
 			case 27:
@@ -905,25 +1050,47 @@ int main ()
 					system("ptf --no-network-connection");
 					break;
 				};
-				case 32:
-					{
-							ofstream file;
-							file.open("conf/speicher.txt",fstream::out | fstream::trunc);
-							file.clear(); 
-						cout<<"\n\033[1;31m[!]\033[0myou are logged out"<<endl;
-						return 1;
-						break;
-					};
+			case 32:
+				{
+						ofstream file;
+						file.open("conf/speicher.txt",fstream::out | fstream::trunc);
+						file.clear(); 
+					cout<<"\n\033[1;31m[!]\033[0myou are logged out"<<endl;
+					return 1;
+					break;
+				};
+			case 33:
+				{
+					cout<<"note activate: [1/0] ";
+					cin>>note;
+					cout<<"location for notes:";
+					cout<<"location: "+notel<<endl;
+					buf = readline("/note/location~ ");
+            		rl_bind_key('\t',rl_complete);
+
+              		if (buf[0]!=0)
+              		{
+                  	add_history(buf);
+     				notel = buf;
+     		     	free(buf);
+     		     	}
+					break;
+				}
+			case 34:
+				{
+					cout<<"ssh up/ down load: "<<endl;
+					system("scp ");
+					break;
+				};
 
 			case 98:
 				{
-					cout<<"talk: "<<endl;
-					system( cname);
+					cout<<"connection "<<endl;
 					break;
 				};
 			case 1000:
 				{
-					system("g++ -o Dedsec{,.cpp} -lreadline");
+					system("g++ -o Dedsec2_1{,.cpp} -lreadline");
 					return 0;
 				};
 			case 1500:
@@ -936,7 +1103,7 @@ int main ()
 				{
 					cout<<"has a great shop! "<<endl;
 					cout<<"and youtube channel !"<<endl;
-					cout<<"\n °"<<endl;
+					cout<<"\n  °"<<endl;
 					cout<<"    °"<<endl;
 					cout<<"° ° °"<<endl;
 					break;
