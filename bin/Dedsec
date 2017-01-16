@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "${UID}" != "0" ]; then
+	echo -e "\e[1;31m[!] must be root. sudo it up!\e[0m" 1>&2
+	exit 1
+else 
+cd /usr/share/Dedsec
+./Dedsec
+fi
+

@@ -1,0 +1,220 @@
+
+install datei erstellen   [wh]
+datein für shortcuts einbinden  [wh]
+history aus datein[wh]
+vllt die kommplette autocompletefunc umschreiben... [wh]
+module für rubber_ ducky [*], wifi pineapple und turtle schreiben [*]vllt auch noch zugriff auf veil und brutal... [wh]
+readme anpassen [wh]
+weitere hilfen ... notizen  ?  [wh]?
+anpassen für andre OS´s...?
+um schreiben in ruby?
+server auf setzen...(banana)... wass soll der können... (irc? file hosting? update framework?)  [wh]?
+map modul bearbeiten...
+mehr module!!! bruteforce hash[*] was braucht man noch?	portscan? o. nmap? nmap erleichtern? [wh]
+compil problem lösen!!  [wh]
+"google"func? 
+globalen in file? einzelne files??? nee!
+dedsec in 2.terminal öffnen!  [wh]
+ssh upload  [wh]
+ausgabe in note?
+test ninjamode  [wh]
+nmap stealth scans  [wh]
+logout and shutdown!!!! [*]
+
+challenges einbauen??!!!... hmm
+
+_____________________________________________________________________________________________________________
+
+
+modul ideen:
+
+rubberducky shit... konkret: ?
+wifi pineapple shit...(vllt extra menu?)
+turtleshit???
+
+_____________________________________________________________________________________________________________
+
+
+
+readme ideen:
+
+gliederung?
+1what is dedsec
+2how to compile/install
+3how to use
+4demo?
+5platforms tested
+6
+thx: to tihmstar,...
+
+vorlagetest:
+_____________________________________________________________________________________________________________
+
+# DEDSEC
+
+```
+                                
+                                            @@@@@@@@   @@@@@@@@@         
+                             @@@@@@@      @@@@@@@@@@@ @@@@@@@@@@@@             
+                           @@@@@@@@@@@@  @@@@@@ @@@@@ @@@@@@@@@@@@@  @@@@      
+  @@@@          @@@@@@@@@@ @@@@@@@@@@@@@ @@@@@@ @@@@  @@@@@%   @@@ @@@@@@@@@   
+@@@@@@@@@    @@@@@@@@@@@@@ #@@@@@@@@@@@@ @@@@@@      @@@@@@@     @@@@@@@@@@@@@ 
+@@@@@@@@@@   @@@@@@@@@@@@  @@@@@  @@@@@ #&&&&&&&&    @@@@@@@@@@ @@@@@@ @@@@@@@@
+ @@@@@@@@@@   @@@@@@@@@@@@  @@@@@  @@@@@ #&&&&&&&&   @@@@@@@@@@ @@@@@   @@@@@@@
+  @@@@@@@@@@&  @@@@@@@@@    @@@@&  &&&&&  &&&&&&&&% &&&&&&&&@  &@@@@    @@@@@@@
+   @@@@  %@&&&  @@@&&&       &&&&&  &&&&    &&&&&&& &&&&      &&&&@     (@@@@# 
+    @@@&   &&&&  &&&&&.      &&&&&  &&&&      %%%% %&&&      &&&&              
+     &&&&   &&&%  &&%%%%%%%%  %%%%  %%%% /%%   %%% %%%%%%%  %&&& &&&&&&        
+      &&&&   %%%#  %%%%%%%%#  %%%%  %%%% %%%%%%%%% %%%%%%% %%%%&&&&&&          
+       %%%%   %%%   %######   ##### #### ########  ##%%%%  %%%%%%%&            
+        %%%%   ###  #####      #### #### (######             %%%%               
+         %###  ####  #((((     ((((((((/   (##                                  
+          ####  #(((  (((( (((( ((((((                                         
+           ##(( ((((   ((////// (((                                            
+            ((((((((/   ///////                                               
+             ((((((//    ///                                                   
+              ///////                                          
+               ////                                     
+
+
+                   ++++++++++++++++++++++++++++++++++++++++                    
+                    Developed by: Luna (nao3301 & lupa)                      
+                    Version: 0.2.0 beta                                        
+                   ++++++++++++++++++++++++++++++++++++++++                    
+```
+
+```
+Usage : [sudo] Dedsec
+  ~ [command]
+
+```
+
+Dedsec is a command line tool which can be used for pentesting.
+This tool supports Linux, and it is planed also for windows.
+
+### login 
+
+nickname:[nickname]
+confirm your membership: [password]
+
+###  help
+
+```
+use arrowkeys to use history, use tap for auto completion
+
+exit     => closes Dedsec
+bash     => opens bash ( come with exit back to Dedsec )
+show     => shows you the modulessetglo   => you can set globals, which then will be used by the modules
+delglo   => deletes all globals
+about    => about
+payload  => menu for payloads for the USB rubberducky
+pinemod  => write a modul for the wifi pineapple nano
+clshist  => clear the history
+shutdown => shutdown your machine
+c
+
+```
+
+### show
+
+```
+fluxion  ==> opens fluxion(tool to crack wlan)
+map      ==> maps the wireless networks around you
+scan     ==> scans other clients in your network
+wifite   ==> starts wifite
+set      ==> starts the SEToolkit
+ptf      ==> starts the pentestframework
+msf      ==> starts metasploit
+kicknick ==> kicks one target out of the network
+dedpscr  ==> cracks password hash with wordlist (dictionary attack)
+lip      ==> shows your ip adress
+shhh     ==> starts a listener (for example for the reverse shell from the rubber ducky!)
+ssh      ==> sets ssh-connection to a client
+logout   ==> logout
+
+
+```
+
+### Demo
+
+Here is a demo of Dedsec running on Kali Linux. 
+
+[![Dedsec demo](https://asciinema.org/a/6jo8dd7d66ljrso5xon8ob5ub.png)](https://asciinema.org/a/6jo8dd7d66ljrso5xon8ob5ub)
+
+### Platforms tested :
+
+- Linux
+
+### Platforms comming :
+
+- Windows
+
+### TODO
+
+The TODO list is [here](https://github.com/nao3301/Dedsec/projects/1)
+
+### Installation 
+
+I wrote a Makefile to build Dedsec run `make` & `sudo make install` to build and install
+
+Make sure you have GCC installed
+
+By default, the install directory is `/usr/bin/`, you can change it by modifying `INSTALL_DIR` variable in the [Makefile](https://github.com/nao3301/Dedsec/blob/master/Makefile#L4) 
+
+
+### Community
+
+You are invited to use, optimize and change Dedsec! Just do whatever you want!
+Because it is still in beta feel free to tell us any improvements, we will fix any issues as fast as possible.
+If you add anything to the code and you consider it worth sharing please send us an [email](nao.lupa@gmail.com). We are looking forward to it!
+For any other questions contact [us](nao.lupa@gmail.com). We will try to help you as much as we can.
+
+### Credits
+
+Tool developed by [@nao3301](https://github.com/nao3301) & [@lupa](https://github.com/nao3301)
+
+### Tanks to
+
+- all Developers
+  -  lupa
+  -  blub
+- [@Hak5](https://hak5.org)
+- [@tihmstar](https://github.com/tihmstar)
+- kali linux
+- github
+- gnu projekt
+
+msf
+ptf
+brutal
+veil
+...
+
+
+
+
+
+
+
+
+# Dedsec
+[will become] command line framework 
+
+
+compile Dedsec with: g++ -o Dedsec{,.cpp} -lreadline
+
+if you have ideas for new functions or modules send them to me! 
+we will check them and load them up!
+
+
+-----------------------------------------------------------------------------
+
+the start with dedsec
+
+it is for pentester/ or seurity interested peopel
+the first you do aftter install, login
+you type youre hackernane and then, you need the passwd.
+this is your first challenge;) reverse the code and login
+
+
+and now you can start use Dedsec !!
