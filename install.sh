@@ -13,6 +13,9 @@ else
 		cd
 	fi
 	cp /usr/share/Dedsec/bin/Dedsec /usr/local/bin/Dedsec
+	cd /usr/local/bin/
+	chmod +x Dedsec
+	cd
 	
 fi
 
