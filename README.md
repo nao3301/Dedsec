@@ -87,6 +87,7 @@ logout   ==> logout
 ### Platforms tested :
 
 - Kali Linux
+- Arch Linux
 
 ### Platforms comming :
 
@@ -94,14 +95,18 @@ logout   ==> logout
 
 ### Installation 
 
-Start a terminal in the Dedsec folder and type:
+Download the install.sh and make it executable. This can be done like this:
+Start a terminal in the folder and type:
 ```
-g++ -o Dedsec{,.cpp} -lreadline
+sudo chmod +x install.sh
+```
+Then type the following to run the install.sh:
+```
+sudo ./install.sh
 ```
 
 Make sure you have GCC installed
 
-Install.sh comming soon
 
 ### Community
 
