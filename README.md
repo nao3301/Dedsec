@@ -131,6 +131,7 @@ Tool developed by [@nao3301](https://github.com/nao3301) & [@lupa](https://githu
 
 2_2
 - install.sh
+- note
 
 ### Tanks to
 
