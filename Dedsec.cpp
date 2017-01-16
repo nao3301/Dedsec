@@ -315,6 +315,7 @@ int main ()
 		cout<<"which one do you want to use?"<<endl;
 
     					int i=0;
+					getifaddrs (&ifap);
    					 for (ifa = ifap; ifa; ifa = ifa->ifa_next) {
      				   if (ifa->ifa_addr->sa_family==AF_INET) {
       				      sa = (struct sockaddr_in *) ifa->ifa_addr;
