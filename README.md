@@ -54,7 +54,8 @@ use arrowkeys to use history, use tap for auto completion
 
 exit     => closes Dedsec
 bash     => opens bash ( come with exit back to Dedsec )
-show     => shows you the modulessetglo   => you can set globals, which then will be used by the modules
+show     => shows you the modules
+setglo   => you can set globals, which then will be used by the modules
 delglo   => deletes all globals
 about    => about
 clshist  => clear the history
