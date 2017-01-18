@@ -57,9 +57,11 @@ bash     => opens bash ( come with exit back to Dedsec )
 show     => shows you the modulessetglo   => you can set globals, which then will be used by the modules
 delglo   => deletes all globals
 about    => about
-payload  => menu for payloads for the USB rubberducky
 clshist  => clear the history
 shutdown => shutdown your machine
+time     => shows time and date
+note     => save your output in a note file
+logout   ==> logout
 c
 
 ```
@@ -76,10 +78,12 @@ ptf      ==> starts the pentestframework
 msf      ==> starts metasploit
 kicknick ==> kicks one target out of the network
 dedpscr  ==> cracks password hash with wordlist (dictionary attack)
+ducky    ==> opens the DuckToolkit to encode ducky scrips
 lip      ==> shows your ip adress
 shhh     ==> starts a listener (for example for the reverse shell from the rubber ducky!)
 ssh      ==> sets ssh-connection to a client
-logout   ==> logout
+turtcon  ==> connects to your Lan-Turtle (ssh)
+pinecon  ==> connects to your WIFI-Pineapple (ssh)
 
 
 ```
