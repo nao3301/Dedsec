@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ $UID -ne 0 ]; then
 	echo -e "\033[1,mmust be root. sudo it up!\033[31m" 1>&2
 	exit 1
